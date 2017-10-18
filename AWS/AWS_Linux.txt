@@ -4,6 +4,16 @@ Public IP: 34.224.51.70
 34.224.51.70
 
 
+34.227.197.129
+
+
+ssh -i NU.pem ubuntu@34.227.197.129
+
+ssh ubuntu@34.227.197.129
+
+4INFO
+
+
 ssh ubuntu@34.224.51.70
 <passwd>
 
@@ -27,10 +37,14 @@ ssh ubuntu@34.224.51.70
 <passwd>
 
 
+4INFO
 
 
 sudo passwd root
 sudo passwd ubuntu
+
+sudo adduser uber
+
 
 sudo nano /etc/ssh/sshd_config 
 
@@ -46,6 +60,7 @@ sudo /etc/init.d/ssh restart
 
 ssh -i ubuntu@34.224.51.70
 
+sudo apt-get update
 sudo apt install apache2
 sudo apt-get install apache2
 sudo aptitude install apache2
@@ -60,6 +75,42 @@ nano /var/www/html/index.html
 
 sudo chown -R ubuntu.www-data /var/www
 sudo chmod -R 775 /var/www
+
+sudo chown -R ubuntu.www-data /var/www
+sudo adduser phpmyadmin
+
+
+
+<?php
+
+// Show all information, defaults to INFO_ALL
+phpinfo();
+
+// Show just the module information.
+// phpinfo(8) yields identical results.
+phpinfo(INFO_MODULES);
+
+?>
+
+sudo apt-get install mysql-server
+
+mysql -u root -p
+
+sudo apache2ctl configtest
+
+sudo nano /etc/apache2/apache2.conf
+
+CREATE TABLE  `neu`.`jobs` (
+`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`url` VARCHAR( 1024 ) NOT NULL DEFAULT  '''''',
+`description` TEXT NULL DEFAULT NULL
+) ENGINE = INNODB;
+
+
+
+http://domain_name_or_IP/phpmyadmin
+
+http://34.227.197.129/phpmyadmin
 
 
 Professor Bear - Linux File Permissions

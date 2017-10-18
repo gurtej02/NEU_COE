@@ -32,7 +32,7 @@ IP: 173.45.248.175
 
 /COE.NET/html
 sudo adduser ubuntu
-sudo chown -R ubuntu.www-data /
+sudo chown -R ubuntu.www-data /var/www
 sudo adduser phpmyadmin
 sudo passwd root
 sudo passwd ubuntu
@@ -78,6 +78,10 @@ sudo apt-get install  libgtkspell0 libmagick++3 libmagickcore3 libmagickcore3-ex
 sudo apt-get install mysql-server
 apt-get install php-mysql
 
+
+mysql -u root -p
+
+
 use coe_com;
 
 sudo chkconfig mysqld on
@@ -94,12 +98,19 @@ UPDATE user SET password=password('lafilm') where user ='lafilm';
 jajah ! Their new password is 8PassWD!
 flush privileges;
 
-CREATE TABLE  `lafilm`.`jobs` (
+CREATE TABLE  `info`.`jobs` (
 `ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `url` VARCHAR( 1024 ) NOT NULL DEFAULT  '''''',
 `description` TEXT NULL DEFAULT NULL
 ) ENGINE = INNODB;
 
+
+
+CREATE TABLE  `coe_com`.`jobs` (
+`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`url` VARCHAR( 1024 ) NOT NULL DEFAULT  '''''',
+`description` TEXT NULL DEFAULT NULL
+) ENGINE = INNODB;
 
 
 
